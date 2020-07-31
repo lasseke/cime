@@ -460,10 +460,11 @@ class Case(object):
         self.set_lookup_value("COMP_INTERFACE", driver)
         if self._cime_model == 'ufs':
             config = {}
-            if 'ufsatm' in compset_name:
+            if 'ufsatm' in compset_name or 'GFS' in compset_name:
                 config['component']='nems'
             else:
                 config['component']='cpl'
+            print compset_name, self._cime_model, config['component'] 
             comp_root_dir_cpl = files.get_value("COMP_ROOT_DIR_CPL", attribute=config)
 
         if self._cime_model == 'cesm':
