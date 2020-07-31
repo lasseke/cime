@@ -339,7 +339,8 @@ def _build_libraries(case, exeroot, sharedpath, caseroot, cimeroot, libroot, lid
     if mpilib == "mpi-serial":
         libs.insert(0, mpilib)
 
-    if comp_interface == "nuopc":
+    compset = case.get_value("COMPSET")
+    if comp_interface == "nuopc" and "_D" in compset:
         libs.insert(0, "fox")
 
     if uses_kokkos(case):
@@ -348,7 +349,6 @@ def _build_libraries(case, exeroot, sharedpath, caseroot, cimeroot, libroot, lid
     # Build shared code of CDEPS nuopc data models
     cdeps_build_script = None
     if comp_interface == "nuopc":
-        compset = case.get_value("COMPSET")
         if "_D" in compset:
             libs.append("CDEPS")
             cdeps_build_script = os.path.join(cimeroot, "src", "components", "cdeps", "cime_config", "buildlib")
