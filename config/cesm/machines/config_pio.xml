@@ -51,6 +51,7 @@
   <entry id="PIO_REARRANGER">
     <values>
       <value compset="DATM">1</value>
+      <value grid="ne0">1</value>
     </values>
   </entry>
 

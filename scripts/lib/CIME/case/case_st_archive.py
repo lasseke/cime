@@ -9,8 +9,8 @@ import shutil, glob, re, os
 from CIME.XML.standard_module_setup import *
 from CIME.utils                     import run_and_log_case_status, ls_sorted_by_mtime, symlink_force, safe_copy, find_files
 from CIME.date                      import get_file_date
-from CIME.XML.archive       import Archive
-from CIME.XML.files            import Files
+from CIME.XML.archive               import Archive
+from CIME.XML.files                 import Files
 from os.path                        import isdir, join
 
 logger = logging.getLogger(__name__)
@@ -36,6 +36,13 @@ def _get_datenames(casename, rundir):
     files = sorted(glob.glob(os.path.join(rundir, casename +      '.cpl.r.*.nc')))
     if not files:
         files = sorted(glob.glob(os.path.join(rundir, casename + '.cpl_0001.r.*.nc')))
+
+    # TODO: this is just a temporary place holder to determine how to handle CAM cases without a mediator
+    # for NUOPC cases can run without a mediator (or coupler) so look for CAM restart files
+    if not files:
+        files = sorted(glob.glob(os.path.join(rundir, casename + '.cam.r.*.nc')))
+    if not files:
+        files = sorted(glob.glob(os.path.join(rundir, casename + '.cam_0001.r.*.nc')))
 
     logger.debug("  cpl files : {} ".format(files))
 

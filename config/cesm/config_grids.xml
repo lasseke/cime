@@ -1527,6 +1527,7 @@
       <nx>13824</nx> <ny>1</ny>
       <file grid="atm|lnd" mask="gx1v7">$DIN_LOC_ROOT/share/domains/domain.lnd.ne16pg3_gx1v7.171003.nc</file>
       <file grid="ocnice"  mask="gx1v7">$DIN_LOC_ROOT/share/domains/domain.ocn.ne16pg3_gx1v7.171003.nc</file>
+      <mesh driver="nuopc">$DIN_LOC_ROOT/share/meshes/ne16pg3_ESMFmesh_c20200820.nc</mesh>
       <desc>ne16np4.pg3 is a Spectral Elem 2-deg grid with a 3x3 FVM physics grid:</desc>
       <support>EXPERIMENTAL FVM physics grid</support>
     </domain>
@@ -1554,6 +1555,7 @@
       <nx>48600</nx> <ny>1</ny>
       <file grid="atm|lnd" mask="gx1v7">$DIN_LOC_ROOT/share/domains/domain.lnd.ne30np4.pg3_gx1v7.170605.nc</file>
       <file grid="ocnice"  mask="gx1v7">$DIN_LOC_ROOT/share/domains/domain.ocn.ne30np4.pg3_gx1v7_170605.nc</file>
+      <mesh driver="nuopc">$DIN_LOC_ROOT/share/meshes/ne30pg3_ESMFmesh_c20200821.nc</mesh>
       <desc>ne30np4.pg3 is a Spectral Elem ne30 grid with a 3x3 FVM physics grid:</desc>
       <support>EXPERIMENTAL FVM physics grid</support>
     </domain>
